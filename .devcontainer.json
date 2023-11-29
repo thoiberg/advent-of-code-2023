@@ -1,0 +1,19 @@
+{
+    "name": "Advent of Code 2023",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "mounts": ["source=${localWorkspaceFolder}/,target=/app,type=bind"],
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "serayuzgur.crates",
+                "usernamehw.errorlens",
+                "tamasfe.even-better-toml",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
