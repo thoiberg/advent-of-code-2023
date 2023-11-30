@@ -12,5 +12,3 @@ RUN curl -L --proto '=https' --tlsv1.2 \
 
 # RUN rustup component add clippy rustfmt
 RUN cargo binstall -y cargo-watch cargo-nextest
-
-RUN git config --global core.pager "less -FX"
