@@ -4,7 +4,7 @@ RUN mkdir /app
 WORKDIR /app
 
 RUN apt-get update
-RUN apt-get install -y less vim software-properties-common man gnupg2 zsh
+RUN apt-get install -y less vim software-properties-common man gnupg2 zsh sudo
 
 RUN curl -L --proto '=https' --tlsv1.2 \
     -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh \
