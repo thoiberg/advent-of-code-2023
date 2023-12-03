@@ -13,7 +13,9 @@
                 "usernamehw.errorlens",
                 "tamasfe.even-better-toml",
                 "ms-azuretools.vscode-docker",
-                "CircleCI.circleci"
+                "CircleCI.circleci",
+                "eamodio.gitlens",
+                "christian-kohler.path-intellisense"
             ]
         }
     }
