@@ -1,3 +1,8 @@
+use std::{error::Error, str::FromStr};
+
+use strum::IntoEnumIterator;
+use strum_macros::{EnumIter, EnumString};
+
 fn main() {
     let input = read_input();
     let games = process_input(input);
@@ -31,15 +36,9 @@ fn part_one_solution(games: &[Game]) -> u32 {
 }
 
 fn part_two_solution(games: &[Game]) -> u32 {
-    let colours = vec![CubeColour::Red, CubeColour::Blue, CubeColour::Green];
-
     games
         .iter()
-        .map(|game| {
-            colours
-                .iter()
-                .fold(1, |acc, colour| acc * game.max_for(colour))
-        })
+        .map(|game| CubeColour::iter().fold(1, |acc, colour| acc * game.max_for(&colour)))
         .sum()
 }
 
@@ -144,8 +143,8 @@ struct Cube {
 }
 
 impl Cube {
-    fn try_new(amount: u32, colour: &str) -> Result<Self, &str> {
-        let cube_colour = CubeColour::try_from(colour)?;
+    fn try_new(amount: u32, colour: &str) -> Result<Self, Box<dyn Error + Send + Sync>> {
+        let cube_colour = CubeColour::from_str(colour)?;
 
         Ok(Self {
             amount,
@@ -154,22 +153,16 @@ impl Cube {
     }
 }
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, EnumString, EnumIter)]
 enum CubeColour {
+    #[strum(serialize = "red")]
     Red,
-    Blue,
-    Green,
-}
 
-impl CubeColour {
-    fn try_from(colour: &str) -> Result<Self, &str> {
-        match colour {
-            "green" => Ok(Self::Green),
-            "red" => Ok(Self::Red),
-            "blue" => Ok(Self::Blue),
-            _ => Err("Could not convert {colour} into a cube property"),
-        }
-    }
+    #[strum(serialize = "blue")]
+    Blue,
+
+    #[strum(serialize = "green")]
+    Green,
 }
 
 #[cfg(test)]
