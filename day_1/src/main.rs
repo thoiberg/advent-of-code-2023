@@ -66,26 +66,16 @@ fn part_two_first_and_last_digit(text: &str) -> Option<(u32, u32)> {
 }
 
 fn part_two_first_digit(text: &str) -> Option<u32> {
-    let mut first_dig: Option<u32> = None;
     let char_array: Vec<char> = text.chars().collect();
 
-    for (idx, char) in text.chars().enumerate() {
-        if char.is_numeric() {
-            // todo check if this works before finishing the loop
-            first_dig = char.to_digit(10);
-            break;
+    text.chars().enumerate().find_map(|(idx, char)| {
+        if char.is_ascii_digit() {
+            char.to_digit(10)
+        } else {
+            let partial_string: &String = &char_array[idx..].iter().collect();
+            word_to_digit(partial_string)
         }
-
-        let boop: &String = &char_array[idx..].iter().collect();
-        let spelt_digit = word_to_digit(boop);
-
-        if spelt_digit.is_some() {
-            first_dig = spelt_digit;
-            break;
-        }
-    }
-
-    first_dig
+    })
 }
 
 fn word_to_digit(word: &str) -> Option<u32> {
