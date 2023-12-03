@@ -66,12 +66,6 @@ fn part_two_first_and_last_digit(text: &str) -> Option<(u32, u32)> {
 }
 
 fn part_two_first_digit(text: &str) -> Option<u32> {
-    // if char is digit
-    // return char
-    // else take next 4 chars
-    // see if they start with the number strings
-    // if they do, convert the word into a number
-    // else go to the next position in the string
     let mut first_dig: Option<u32> = None;
     let char_array: Vec<char> = text.chars().collect();
 
@@ -94,60 +88,28 @@ fn part_two_first_digit(text: &str) -> Option<u32> {
     first_dig
 }
 
-enum WordDigits {
-    One,
-    Two,
-    Three,
-    Four,
-    Five,
-    Six,
-    Seven,
-    Eight,
-    Nine,
-}
-
-impl WordDigits {
-    fn try_from(word: &str) -> Result<Self, &str> {
-        if word.starts_with("one") || word.starts_with("eno") {
-            Ok(Self::One)
-        } else if word.starts_with("two") || word.starts_with("owt") {
-            Ok(Self::Two)
-        } else if word.starts_with("three") || word.starts_with("eerht") {
-            Ok(Self::Three)
-        } else if word.starts_with("four") || word.starts_with("ruof") {
-            Ok(Self::Four)
-        } else if word.starts_with("five") || word.starts_with("evif") {
-            Ok(Self::Five)
-        } else if word.starts_with("six") || word.starts_with("xis") {
-            Ok(Self::Six)
-        } else if word.starts_with("seven") || word.starts_with("neves") {
-            Ok(Self::Seven)
-        } else if word.starts_with("eight") || word.starts_with("thgie") {
-            Ok(Self::Eight)
-        } else if word.starts_with("nine") || word.starts_with("enin") {
-            Ok(Self::Nine)
-        } else {
-            Err("{word} does not match any word digit")
-        }
-    }
-}
-
 fn word_to_digit(word: &str) -> Option<u32> {
-    let word_digit = WordDigits::try_from(word).ok()?;
-
-    let uint_value = match word_digit {
-        WordDigits::One => 1,
-        WordDigits::Two => 2,
-        WordDigits::Three => 3,
-        WordDigits::Four => 4,
-        WordDigits::Five => 5,
-        WordDigits::Six => 6,
-        WordDigits::Seven => 7,
-        WordDigits::Eight => 8,
-        WordDigits::Nine => 9,
-    };
-
-    Some(uint_value)
+    if word.starts_with("one") || word.starts_with("eno") {
+        Some(1)
+    } else if word.starts_with("two") || word.starts_with("owt") {
+        Some(2)
+    } else if word.starts_with("three") || word.starts_with("eerht") {
+        Some(3)
+    } else if word.starts_with("four") || word.starts_with("ruof") {
+        Some(4)
+    } else if word.starts_with("five") || word.starts_with("evif") {
+        Some(5)
+    } else if word.starts_with("six") || word.starts_with("xis") {
+        Some(6)
+    } else if word.starts_with("seven") || word.starts_with("neves") {
+        Some(7)
+    } else if word.starts_with("eight") || word.starts_with("thgie") {
+        Some(8)
+    } else if word.starts_with("nine") || word.starts_with("enin") {
+        Some(9)
+    } else {
+        None
+    }
 }
 
 #[cfg(test)]
