@@ -7,18 +7,39 @@ fn main() {
 }
 
 fn part_one_solution(games: &[Game]) -> u32 {
+    let cube_checks = vec![
+        Cube {
+            amount: 14,
+            colour: CubeColour::Blue,
+        },
+        Cube {
+            amount: 13,
+            colour: CubeColour::Green,
+        },
+        Cube {
+            amount: 12,
+            colour: CubeColour::Red,
+        },
+    ];
+
+    check_games(games, &cube_checks)
+        .iter()
+        .fold(0, |acc, game| acc + game.id)
+}
+
+fn check_games<'a>(games: &'a [Game], cube_checks: &[Cube]) -> Vec<&'a Game> {
     games
         .iter()
         .filter(|game| {
-            let blue = game.amounts_for(CubeColour::Blue);
-            let green = game.amounts_for(CubeColour::Green);
-            let red = game.amounts_for(CubeColour::Red);
-
-            blue.iter().max().unwrap() <= &14
-                && green.iter().max().unwrap() <= &13
-                && red.iter().max().unwrap() <= &12
+            cube_checks.iter().all(|cube| {
+                game.amounts_for(&cube.colour)
+                    .iter()
+                    .max()
+                    .map(|max| max <= &cube.amount)
+                    .unwrap_or(true)
+            })
         })
-        .fold(0, |acc, game| acc + game.id)
+        .collect()
 }
 
 fn read_input() -> String {
@@ -75,10 +96,10 @@ struct Game {
 }
 
 impl Game {
-    fn amounts_for(&self, colour: CubeColour) -> Vec<u32> {
+    fn amounts_for(&self, colour: &CubeColour) -> Vec<u32> {
         self.rounds
             .iter()
-            .map(|round| round.amount_for(&colour))
+            .map(|round| round.amount_for(colour))
             .collect()
     }
 }
@@ -141,6 +162,14 @@ mod test_super {
         let games = process_input(test_input);
 
         assert_eq!(part_one_solution(&games), 8);
+    }
+
+    #[test]
+    fn test_part_one_answer() {
+        let test_input = String::from(include_str!("./puzzle_input.txt"));
+        let games = process_input(test_input);
+
+        assert_eq!(part_one_solution(&games), 2727);
     }
 
     #[test]
