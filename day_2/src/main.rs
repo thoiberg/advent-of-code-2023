@@ -76,13 +76,13 @@ fn process_input(input: String) -> Vec<Game> {
             let game_id: u32 = parts[0].split(' ').collect::<Vec<&str>>()[1]
                 .parse::<u32>()
                 .unwrap();
-            let rounds = parts[1].trim().split(';').collect::<Vec<&str>>();
+            let round_data = parts[1].trim().split(';').collect::<Vec<&str>>();
 
-            let round_objs: Vec<Round> = rounds
+            let rounds: Vec<Round> = round_data
                 .iter()
                 .map(|round| {
-                    let cubes = round.split(',').collect::<Vec<&str>>();
-                    let cube_objs: Vec<Cube> = cubes
+                    let cube_data = round.split(',').collect::<Vec<&str>>();
+                    let cubes: Vec<Cube> = cube_data
                         .iter()
                         .map(|cube| {
                             let cube_stuff = cube.trim().split(' ').collect::<Vec<&str>>();
@@ -94,13 +94,13 @@ fn process_input(input: String) -> Vec<Game> {
                         })
                         .collect();
 
-                    Round { cubes: cube_objs }
+                    Round { cubes }
                 })
                 .collect();
 
             Game {
                 id: game_id,
-                rounds: round_objs,
+                rounds,
             }
         })
         .collect()
