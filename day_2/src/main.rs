@@ -4,6 +4,9 @@ fn main() {
 
     let part_one_answer = part_one_solution(&games);
     println!("Part One Answer is: {part_one_answer}");
+
+    let part_two_answer = part_two_solution(&games);
+    println!("Part Two Answer is: {part_two_answer}");
 }
 
 fn part_one_solution(games: &[Game]) -> u32 {
@@ -25,6 +28,19 @@ fn part_one_solution(games: &[Game]) -> u32 {
     check_games(games, &cube_checks)
         .iter()
         .fold(0, |acc, game| acc + game.id)
+}
+
+fn part_two_solution(games: &[Game]) -> u32 {
+    let colours = vec![CubeColour::Red, CubeColour::Blue, CubeColour::Green];
+
+    games
+        .iter()
+        .map(|game| {
+            colours
+                .iter()
+                .fold(1, |acc, colour| acc * game.max_for(colour))
+        })
+        .sum()
 }
 
 fn check_games<'a>(games: &'a [Game], cube_checks: &[Cube]) -> Vec<&'a Game> {
@@ -102,6 +118,10 @@ impl Game {
             .map(|round| round.amount_for(colour))
             .collect()
     }
+
+    fn max_for(&self, colour: &CubeColour) -> u32 {
+        *(self.amounts_for(colour).iter().max().unwrap())
+    }
 }
 
 struct Round {
@@ -156,12 +176,14 @@ impl CubeColour {
 mod test_super {
     use super::*;
 
+    fn test_games() -> Vec<Game> {
+        let test_input = String::from(include_str!("./test_puzzle_input.txt"));
+        process_input(test_input)
+    }
+
     #[test]
     fn test_part_one_solution() {
-        let test_input = String::from(include_str!("./test_puzzle_input.txt"));
-        let games = process_input(test_input);
-
-        assert_eq!(part_one_solution(&games), 8);
+        assert_eq!(part_one_solution(&test_games()), 8);
     }
 
     #[test]
@@ -170,6 +192,11 @@ mod test_super {
         let games = process_input(test_input);
 
         assert_eq!(part_one_solution(&games), 2727);
+    }
+
+    #[test]
+    fn test_part_two_answer() {
+        assert_eq!(part_two_solution(&test_games()), 2286);
     }
 
     #[test]
