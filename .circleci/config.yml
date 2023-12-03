@@ -9,8 +9,18 @@ jobs:
           name: "Day 1 tests"
           command: "cargo test"
           working_directory: "day_1"
+  day_2_test:
+    docker:
+      - image: rust:1.74
+    steps:
+      - checkout
+      - run:
+          name: "Day 2 tests"
+          command: "cargo test"
+          working_directory: "day_2"
 
 workflows:
   tests:
     jobs:
       - day_1_test
+      - day_2_test
