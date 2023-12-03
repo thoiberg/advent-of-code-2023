@@ -161,6 +161,12 @@ mod test_super {
     }
 
     #[test]
+    fn test_part_two_answer() {
+        let calibrations = process_input();
+        assert_eq!(part_two_solution(&calibrations), 54076);
+    }
+
+    #[test]
     fn test_first_digit() {
         assert_eq!(first_digit("1abc2"), Some(1));
         assert_eq!(first_digit("pqr3stu8vwx"), Some(3));
