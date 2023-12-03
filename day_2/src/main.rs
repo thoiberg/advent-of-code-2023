@@ -200,6 +200,14 @@ mod test_super {
     }
 
     #[test]
+    fn test_part_two_solution() {
+        let test_input = String::from(include_str!("./puzzle_input.txt"));
+        let games = process_input(test_input);
+
+        assert_eq!(part_two_solution(&games), 56580);
+    }
+
+    #[test]
     fn test_processing_input() {
         let test_input = String::from(include_str!("./test_puzzle_input.txt"));
         let games = process_input(test_input);
