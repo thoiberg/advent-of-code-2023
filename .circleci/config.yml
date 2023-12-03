@@ -9,6 +9,10 @@ jobs:
           name: "Day 1 tests"
           command: "cargo test"
           working_directory: "day_1"
+      - run:
+          name: "Day 1 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_1"
   day_2_test:
     docker:
       - image: rust:1.74
@@ -17,6 +21,10 @@ jobs:
       - run:
           name: "Day 2 tests"
           command: "cargo test"
+          working_directory: "day_2"
+      - run:
+          name: "Day 2 formatting"
+          command: "cargo clippy -- -Dwarnings"
           working_directory: "day_2"
 
 workflows:
