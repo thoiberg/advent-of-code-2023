@@ -42,29 +42,24 @@ fn find_parts(grid: &Array2<char>) -> Vec<u32> {
 }
 
 fn surrounding_cells(grid: &Array2<char>, row: usize, col: usize) -> Vec<Option<&char>> {
-    let mut coordinates = vec![];
-
-    if row > 0 && col > 0 {
-        coordinates.push((row - 1, col - 1));
-    }
-
-    if row > 0 {
-        coordinates.push((row - 1, col));
-        coordinates.push((row - 1, col + 1));
-    }
-
-    if col > 0 {
-        coordinates.push((row, col - 1));
-        coordinates.push((row + 1, col - 1));
-    }
-
-    coordinates.push((row, col + 1));
-    coordinates.push((row + 1, col));
-    coordinates.push((row + 1, col + 1));
+    let coordinates = vec![
+        // row above
+        (row.checked_sub(1), col.checked_sub(1)),
+        (row.checked_sub(1), Some(col)),
+        (row.checked_sub(1), col.checked_add(1)),
+        // current row
+        (Some(row), col.checked_sub(1)),
+        (Some(row), col.checked_add(1)),
+        // row below
+        (row.checked_add(1), col.checked_sub(1)),
+        (row.checked_add(1), Some(col)),
+        (row.checked_add(1), col.checked_add(1)),
+    ];
 
     coordinates
         .into_iter()
-        .filter(|(row, col)| row > &0 && col > &0)
+        .filter(|(row, col)| row.is_some() && col.is_some())
+        .map(|(row, col)| (row.unwrap(), col.unwrap()))
         .map(|coords| grid.get(coords))
         .collect()
 }
@@ -92,8 +87,8 @@ fn process_input(input: &str) -> Array2<char> {
     let rows = grid.len();
     let columns = grid[0].len(); // Should be fine since the input is in a consistent shape
 
-    let boop: Vec<char> = grid.iter().flatten().cloned().collect();
-    Array2::from_shape_vec((rows, columns), boop).unwrap()
+    let flattened_grid: Vec<char> = grid.iter().flatten().cloned().collect();
+    Array2::from_shape_vec((rows, columns), flattened_grid).unwrap()
 }
 
 fn read_input() -> String {
