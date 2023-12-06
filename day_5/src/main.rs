@@ -1,3 +1,7 @@
+// TODO: Use custom iteration on the Enum instead of writing it by hand
+// TODO: For Part Two, convert the seeds into ranges and iterate. Will
+//       probably need to optimise
+
 use std::{collections::HashMap, ops::Range, str::FromStr};
 
 use strum_macros::EnumString;
