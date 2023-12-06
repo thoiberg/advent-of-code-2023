@@ -1,7 +1,8 @@
+// TODO: Improve binary maths to remove conditional for empty array
+// TODO: Investigation repeated capture groups/nom for string parsing
 use regex::Regex;
 
 fn main() {
-    println!("Hello, world!");
     let input = read_input();
     let cards = process_input(&input);
 
@@ -20,11 +21,9 @@ fn calculate_card_points(card: &Card) -> u32 {
     // TODO: There has to be a better way to do this with just binary
     if matched_numbers.is_empty() {
         0
-    } else if matched_numbers.len() == 1 {
-        1
     } else {
-        let point_value = 1;
-        point_value << (matched_numbers.len() - 1)
+        let offset = matched_numbers.len() - 1;
+        1 << offset
     }
 }
 
@@ -56,13 +55,11 @@ fn process_input(input: &str) -> Vec<Card> {
         .map(|line| {
             let captures = re.captures(line).unwrap();
             let card_number = &captures[1].parse::<u32>().unwrap();
-            let winning_numbers_str = &captures[2];
-            let winning_numbers: Vec<u32> = winning_numbers_str
+            let winning_numbers = captures[2]
                 .split(' ')
                 .filter_map(|c| c.parse::<u32>().ok())
                 .collect();
-            let scratched_numbers_str = &captures[3];
-            let scratched_numbers: Vec<u32> = scratched_numbers_str
+            let scratched_numbers = captures[3]
                 .split(' ')
                 .filter_map(|c| c.parse::<u32>().ok())
                 .collect();
