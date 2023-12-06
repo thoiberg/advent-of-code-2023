@@ -129,7 +129,7 @@ impl Map {
         let map_range = self
             .ranges
             .iter()
-            .find(|map_range| map_range.source_range.contains(&source));
+            .find(|map_range| map_range.source_range.contains(source));
 
         match map_range {
             Some(map_range) => {
@@ -142,9 +142,6 @@ impl Map {
 }
 
 struct MapRange {
-    dest_range_start: u64,
-    source_range_start: u64,
-    range_length: u64,
     destination_range: Range<u64>,
     source_range: Range<u64>,
 }
@@ -155,9 +152,6 @@ impl MapRange {
         let source_range = source..(source + length);
 
         Self {
-            dest_range_start: dest,
-            source_range_start: source,
-            range_length: length,
             destination_range,
             source_range,
         }
@@ -189,9 +183,6 @@ mod test_super {
         assert!(almanac.maps.get(&MapType::HumiditytoLocation).is_some());
 
         let soil_map = almanac.maps.get(&MapType::SeedtoSoil).unwrap();
-        assert_eq!(soil_map.ranges[0].dest_range_start, 50);
-        assert_eq!(soil_map.ranges[0].source_range_start, 98);
-        assert_eq!(soil_map.ranges[0].range_length, 2);
         assert_eq!(soil_map.ranges[0].destination_range, (50..52));
         assert_eq!(soil_map.ranges[0].source_range, (98..100));
     }
