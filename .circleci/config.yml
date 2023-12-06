@@ -72,6 +72,24 @@ jobs:
           command: "cargo clippy -- -Dwarnings"
           working_directory: "day_4"
 
+  day_5_test:
+    docker:
+      - image: rust:1.74
+    steps:
+      - checkout
+      - run:
+          name: "Day 5 tests"
+          command: "cargo test"
+          working_directory: "day_5"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_5"
+      - run:
+          name: "Day 5 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_5"
+
 workflows:
   tests:
     jobs:
@@ -79,3 +97,4 @@ workflows:
       - day_2_test
       - day_3_test
       - day_4_test
+      - day_5_test
