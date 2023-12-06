@@ -50,7 +50,7 @@ jobs:
           command: "rustup component add clippy"
           working_directory: "day_4"
       - run:
-          name: "Day 2 formatting"
+          name: "Day 4 formatting"
           command: "cargo clippy -- -Dwarnings"
           working_directory: "day_4"
 
