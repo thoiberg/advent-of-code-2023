@@ -29,6 +29,7 @@ fn calculate_card_points(card: &Card) -> u32 {
 }
 
 struct Card {
+    #[allow(dead_code)]
     number: u32,
     winning_numbers: Vec<u32>,
     scratched_numbers: Vec<u32>,
