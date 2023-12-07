@@ -43,7 +43,7 @@ fn race_possibilities(race: &Race) -> Vec<u32> {
         .collect()
 }
 
-fn winning_possibilities<'a>(race: &Race, possibilities: &'a Vec<u32>) -> Vec<&'a u32> {
+fn winning_possibilities<'a>(race: &Race, possibilities: &'a [u32]) -> Vec<&'a u32> {
     possibilities
         .iter()
         .filter(|possibility| possibility > &&race.distance)
