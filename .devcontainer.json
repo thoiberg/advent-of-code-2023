@@ -15,7 +15,8 @@
                 "ms-azuretools.vscode-docker",
                 "CircleCI.circleci",
                 "eamodio.gitlens",
-                "christian-kohler.path-intellisense"
+                "christian-kohler.path-intellisense",
+                "ms-azuretools.vscode-docker"
             ]
         }
     }
