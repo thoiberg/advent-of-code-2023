@@ -1,6 +1,12 @@
 // TODO: Parse the data file to retrieve the data, instead of manually adding
 fn main() {
-    let races = vec![
+    let races = races();
+    let part_one_answer = part_one_solution(&races);
+    println!("Part One Answer is: {part_one_answer}");
+}
+
+fn races() -> Vec<Race> {
+    vec![
         Race {
             time: 38,
             distance: 234,
@@ -17,9 +23,7 @@ fn main() {
             time: 73,
             distance: 1236,
         },
-    ];
-    let part_one_answer = part_one_solution(&races);
-    println!("Part One Answer is: {part_one_answer}");
+    ]
 }
 
 fn part_one_solution(races: &[Race]) -> usize {
@@ -97,5 +101,14 @@ mod test_super {
         let answer = part_one_solution(&races);
 
         assert_eq!(answer, 288);
+    }
+
+    #[test]
+    fn test_part_one_solution_real() {
+        let races = races();
+
+        let answer = part_one_solution(&races);
+
+        assert_eq!(answer, 303600);
     }
 }
