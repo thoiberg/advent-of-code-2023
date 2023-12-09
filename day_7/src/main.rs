@@ -10,11 +10,12 @@ fn main() {
     println!("Part One answer is: {part_one_answer}");
 }
 
-fn part_one_solution(mut rounds: Vec<Round>) -> u64 {
+fn part_one_solution(mut rounds: Vec<Round>) -> u32 {
     rounds.sort();
 
     rounds.iter().enumerate().fold(0, |acc, (idx, round)| {
-        acc + (((idx + 1) as u64) * (round.bid as u64))
+        let round_value: u32 = (idx + 1) as u32 * round.bid;
+        acc + round_value
     })
 }
 
