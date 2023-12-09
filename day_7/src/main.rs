@@ -47,17 +47,17 @@ struct Round {
 
 impl PartialOrd for Round {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        self.hand.partial_cmp(&other.hand)
+        Some(self.cmp(other))
     }
 }
 
 impl Ord for Round {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.hand.partial_cmp(&other.hand).unwrap()
+        self.hand.cmp(&other.hand)
     }
 }
 
-#[derive(PartialEq, Eq, Debug, PartialOrd)]
+#[derive(PartialEq, Eq, Debug, PartialOrd, Ord)]
 enum HandType {
     HighCard,
     OnePair,
@@ -68,7 +68,7 @@ enum HandType {
     FiveOfAKind,
 }
 
-#[derive(PartialEq, Eq, Debug, PartialOrd)]
+#[derive(PartialEq, Eq, Debug, PartialOrd, Ord)]
 struct Hand {
     r#type: HandType,
     cards: Vec<Card>,
@@ -121,7 +121,7 @@ impl Hand {
     }
 }
 
-#[derive(PartialEq, PartialOrd, EnumString, Debug, Hash, Eq)]
+#[derive(PartialEq, PartialOrd, Ord, EnumString, Debug, Hash, Eq)]
 enum Card {
     #[strum(serialize = "2")]
     Two,
