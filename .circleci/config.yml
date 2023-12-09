@@ -135,3 +135,4 @@ workflows:
       - day_4_test
       - day_5_test
       - day_6_test
+      - day_7_test
