@@ -1,14 +1,4 @@
 fn main() {
-    // get the array
-    // loop and get the current one and next one
-    //      if next one is None, break
-    // find the diff and push it into a new array
-    // repeat until new array is all 0s
-    // from the last array, add the value to the next array
-    // and push to the end of the second array
-    // complete until at the top
-    // take the last value and return it
-    // sum all values together
     let input = read_input();
     let readings = process_input(&input);
 
