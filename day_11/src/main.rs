@@ -6,7 +6,7 @@ fn main() {
     let part_one_answer = part_one_solution(&expanded_galaxy);
     println!("Part One Answer is {part_one_answer}");
 }
-fn part_one_solution(galaxy_map: &Vec<Vec<char>>) -> usize {
+fn part_one_solution(galaxy_map: &[Vec<char>]) -> usize {
     let galaxy_pairs = generate_pairs(galaxy_map);
 
     galaxy_pairs
@@ -52,18 +52,15 @@ fn expand(galaxy_map: Vec<Vec<char>>) -> Vec<Vec<char>> {
 
 type Coordinate = (usize, usize);
 
-fn generate_pairs(galaxy_map: &Vec<Vec<char>>) -> Vec<(Coordinate, Coordinate)> {
+fn generate_pairs(galaxy_map: &[Vec<char>]) -> Vec<(Coordinate, Coordinate)> {
     let mut galaxy_pairs: Vec<(Coordinate, Coordinate)> = vec![];
 
     let mut galaxies: Vec<Coordinate> = vec![];
 
     for (y_index, row) in galaxy_map.iter().enumerate() {
         for (x_index, char) in row.iter().enumerate() {
-            match char {
-                '#' => {
-                    galaxies.push((x_index, y_index));
-                }
-                _ => {}
+            if char == &'#' {
+                galaxies.push((x_index, y_index));
             }
         }
     }
