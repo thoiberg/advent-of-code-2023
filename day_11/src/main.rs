@@ -1,3 +1,5 @@
+// TODO: Redo _allllllllll_ the logic for building the map, it's super
+//      inefficient as is
 fn main() {
     let input = include_str!("../data/puzzle_input.txt");
     let galaxy_map = process_input(input);
