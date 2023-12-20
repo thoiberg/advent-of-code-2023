@@ -87,7 +87,6 @@ fn process_input(input: &str) -> Vec<Array2<char>> {
     terrains
         .into_iter()
         .map(|terrain| {
-            //
             let terrain_data: Vec<Vec<char>> =
                 terrain.lines().map(|line| line.chars().collect()).collect();
             let rows = terrain_data.len();
