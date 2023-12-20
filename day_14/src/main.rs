@@ -13,9 +13,6 @@ fn main() {
 }
 
 fn part_one_solution(platform: &Array2<char>) -> u32 {
-    // for each column move all O to the top of the array
-    // any O that exist after # be moved into position behind them
-    // prev points should be "swapped" or replaced with .
     platform.columns().into_iter().fold(0, |acc, column| {
         let tilted_column = tilt_column(&column);
         let load = calculate_column_load(&tilted_column);
