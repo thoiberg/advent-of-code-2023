@@ -81,12 +81,6 @@ fn part_one_solution(contraption: &[Vec<Tile>]) -> usize {
         beams = new_beams;
     }
 
-    // create a beam and add to beams vec
-    // while beams are not empty
-    // get each beam and move to the next tile
-    // add each tile to the energized_tiles Set
-    // if beam hits the edge (out of vec bounds) then remove from the beams
-    // if written properly it _should_ eventually finish once all beams are empty
     energized_tiles.len()
 }
 
