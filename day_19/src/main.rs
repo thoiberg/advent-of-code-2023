@@ -3,6 +3,8 @@ use std::{collections::HashMap, str::FromStr};
 use regex::Regex;
 use strum::EnumString;
 
+type InputData = (HashMap<String, Queue>, Vec<Part>);
+
 fn main() {
     let input = include_str!("../data/puzzle_input.txt");
     let data = process_input(input);
@@ -16,7 +18,7 @@ fn part_one_solution(data: &InputData) -> u64 {
     let mut rejected_parts: Vec<&Part> = vec![];
     let mut accepted_parts: Vec<&Part> = vec![];
     let first_queue = queues.get("in").expect("Could not find \"in\" queue");
-    // iterate through parts
+
     parts.iter().for_each(|part| {
         let outcome = apply_queue(part, first_queue, queues);
 
@@ -27,33 +29,27 @@ fn part_one_solution(data: &InputData) -> u64 {
         }
     });
 
-    println!("accepted_parts len: {}", accepted_parts.len());
-
     accepted_parts
         .iter()
         .fold(0, |acc, ap| acc + ap.total_value())
 }
 
 fn apply_queue(part: &Part, queue: &Queue, queues: &HashMap<String, Queue>) -> OutCome {
-    // apply rules
     let rule_check = queue.rules.iter().find_map(|rule| rule.check(part));
 
     let queue_outcome = rule_check.unwrap_or(queue.default.clone());
-    // if no rules apply, then apply the default rule
-    // if rule returns accepted or rejected then add part status to a vec
-    // if returns with a redirect, find the next queue and repeat process
+
     match queue_outcome {
         OutCome::Redirect(next_queue_name) => {
             let next_queue = queues
                 .get(&next_queue_name)
                 .expect("could not find next queue");
+
             apply_queue(part, next_queue, queues)
         }
         final_outcome => final_outcome,
     }
 }
-
-type InputData = (HashMap<String, Queue>, Vec<Part>);
 
 fn process_input(input: &str) -> InputData {
     let (workflows, parts_chunk) = input.split_once("\n\n").unwrap();
