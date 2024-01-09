@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   day_1_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
       
   day_2_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -38,7 +38,7 @@ jobs:
   
   day_3_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -56,7 +56,7 @@ jobs:
 
   day_4_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -74,7 +74,7 @@ jobs:
 
   day_5_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -92,7 +92,7 @@ jobs:
 
   day_6_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -110,7 +110,7 @@ jobs:
 
   day_7_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -127,7 +127,7 @@ jobs:
           working_directory: "day_7"
   day_8_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -144,7 +144,7 @@ jobs:
           working_directory: "day_8"
   day_9_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -161,7 +161,7 @@ jobs:
           working_directory: "day_9"
   day_10_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -178,7 +178,7 @@ jobs:
           working_directory: "day_10"
   day_11_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -195,7 +195,7 @@ jobs:
           working_directory: "day_11"
   day_12_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -212,7 +212,7 @@ jobs:
           working_directory: "day_12"
   day_13_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -229,7 +229,7 @@ jobs:
           working_directory: "day_13"
   day_14_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -246,7 +246,7 @@ jobs:
           working_directory: "day_14"
   day_15_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -263,7 +263,7 @@ jobs:
           working_directory: "day_15"
   day_16_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -280,7 +280,7 @@ jobs:
           working_directory: "day_16"
   day_18_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
@@ -297,7 +297,7 @@ jobs:
           working_directory: "day_18"
   day_19_test:
     docker:
-      - image: rust:1.74
+      - image: rust:1.75
     steps:
       - checkout
       - run:
