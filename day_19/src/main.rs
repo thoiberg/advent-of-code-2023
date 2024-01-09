@@ -1,3 +1,6 @@
+// TODO: Cache the results for each rule to speed up execution.
+//      Since the data is static once a rule has been resolved to the
+//      eventual outcome then it does not need to be re-calculated.
 use std::{collections::HashMap, str::FromStr};
 
 use regex::Regex;
