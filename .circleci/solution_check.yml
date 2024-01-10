@@ -1,0 +1,444 @@
+version: 2.1
+
+parameters:
+  day_1_test:
+    type: boolean
+    default: false
+  day_2_test:
+    type: boolean
+    default: false
+  day_3_test:
+    type: boolean
+    default: false
+  day_4_test:
+    type: boolean
+    default: false
+  day_5_test:
+    type: boolean
+    default: false
+  day_6_test:
+    type: boolean
+    default: false
+  day_7_test:
+    type: boolean
+    default: false
+  day_8_test:
+    type: boolean
+    default: false
+  day_9_test:
+    type: boolean
+    default: false
+  day_10_test:
+    type: boolean
+    default: false
+  day_11_test:
+    type: boolean
+    default: false
+  day_12_test:
+    type: boolean
+    default: false
+  day_13_test:
+    type: boolean
+    default: false
+  day_14_test:
+    type: boolean
+    default: false
+  day_15_test:
+    type: boolean
+    default: false
+  day_16_test:
+    type: boolean
+    default: false
+  day_18_test:
+    type: boolean
+    default: false
+  day_19_test:
+    type: boolean
+    default: false
+
+jobs:
+  day_1_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 1 tests"
+          command: "cargo test"
+          working_directory: "day_1"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_1"
+      - run:
+          name: "Day 1 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_1"
+  day_2_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 2 tests"
+          command: "cargo test"
+          working_directory: "day_2"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_2"
+      - run:
+          name: "Day 2 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_2"
+  
+  day_3_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 3 tests"
+          command: "cargo test"
+          working_directory: "day_3"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_3"
+      # - run:
+      #     name: "Day 3 formatting"
+      #     command: "cargo clippy -- -Dwarnings"
+      #     working_directory: "day_3"
+
+  day_4_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 4 tests"
+          command: "cargo test"
+          working_directory: "day_4"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_4"
+      - run:
+          name: "Day 4 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_4"
+
+  day_5_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 5 tests"
+          command: "cargo test"
+          working_directory: "day_5"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_5"
+      - run:
+          name: "Day 5 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_5"
+
+  day_6_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 6 tests"
+          command: "cargo test"
+          working_directory: "day_6"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_6"
+      - run:
+          name: "Day 6 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_6"
+
+  day_7_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 7 tests"
+          command: "cargo test"
+          working_directory: "day_7"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_7"
+      - run:
+          name: "Day 7 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_7"
+  day_8_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 8 tests"
+          command: "cargo test"
+          working_directory: "day_8"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_8"
+      - run:
+          name: "Day 8 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_8"
+  day_9_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 9 tests"
+          command: "cargo test"
+          working_directory: "day_9"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_9"
+      - run:
+          name: "Day 9 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_9"
+  day_10_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 10 tests"
+          command: "cargo test"
+          working_directory: "day_10"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_10"
+      - run:
+          name: "Day 10 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_10"
+  day_11_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 11 tests"
+          command: "cargo test"
+          working_directory: "day_11"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_11"
+      - run:
+          name: "Day 11 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_11"
+  day_12_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 12 tests"
+          command: "cargo test"
+          working_directory: "day_12"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_12"
+      - run:
+          name: "Day 12 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_12"
+  day_13_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 13 tests"
+          command: "cargo test"
+          working_directory: "day_13"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_13"
+      - run:
+          name: "Day 13 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_13"
+  day_14_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 14 tests"
+          command: "cargo test"
+          working_directory: "day_14"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_14"
+      - run:
+          name: "Day 14 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_14"
+  day_15_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 15 tests"
+          command: "cargo test"
+          working_directory: "day_15"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_15"
+      - run:
+          name: "Day 15 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_15"
+  day_16_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 16 tests"
+          command: "cargo test"
+          working_directory: "day_16"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_16"
+      - run:
+          name: "Day 16 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_16"
+  day_18_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 18 tests"
+          command: "cargo test"
+          working_directory: "day_18"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_18"
+      - run:
+          name: "Day 18 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_18"
+  day_19_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 19 tests"
+          command: "cargo test"
+          working_directory: "day_19"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_19"
+      - run:
+          name: "Day 19 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_19"
+
+workflows:
+  day_1_test:
+    when: << pipeline.parameters.day_1_test >>
+    jobs:
+      - day_1_job
+  day_2_test:
+    when: << pipeline.parameters.day_2_test >>
+    jobs:
+      - day_2_job
+  day_3_test:
+    when: << pipeline.parameters.day_3_test >>
+    jobs:
+      - day_3_job
+  day_4_test:
+    when: << pipeline.parameters.day_4_test >>
+    jobs:
+      - day_4_job
+  day_5_test:
+    when: << pipeline.parameters.day_5_test >>
+    jobs:
+      - day_5_job
+  day_6_test:
+    when: << pipeline.parameters.day_6_test >>
+    jobs:
+      - day_6_job
+  day_7_test:
+    when: << pipeline.parameters.day_7_test >>
+    jobs:
+      - day_7_job
+  day_8_test:
+    when: << pipeline.parameters.day_8_test >>
+    jobs:
+      - day_8_job
+  day_9_test:
+    when: << pipeline.parameters.day_9_test >>
+    jobs:
+      - day_9_job
+  day_10_test:
+    when: << pipeline.parameters.day_10_test >>
+    jobs:
+      - day_10_job
+  day_11_test:
+    when: << pipeline.parameters.day_11_test >>
+    jobs:
+      - day_11_job
+  day_12_test:
+    when: << pipeline.parameters.day_12_test >>
+    jobs:
+      - day_12_job
+  day_13_test:
+    when: << pipeline.parameters.day_13_test >>
+    jobs:
+      - day_13_job
+  day_14_test:
+    when: << pipeline.parameters.day_14_test >>
+    jobs:
+      - day_14_job
+  day_15_test:
+    when: << pipeline.parameters.day_15_test >>
+    jobs:
+      - day_15_job
+  day_16_test:
+    when: << pipeline.parameters.day_16_test >>
+    jobs:
+      - day_16_job
+  day_18_test:
+    when: << pipeline.parameters.day_18_test >>
+    jobs:
+      - day_18_job
+  day_19_test:
+    when: << pipeline.parameters.day_19_test >>
+    jobs:
+      - day_19_job
