@@ -31,3 +31,4 @@ workflows:
             day_16/.* day_16_test true
             day_18/.* day_18_test true
             day_19/.* day_19_test true
+            day_20/.* day_20_test true
