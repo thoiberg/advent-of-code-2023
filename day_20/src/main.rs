@@ -352,7 +352,7 @@ mod test_super {
         let mut test_modules = simple_test_data();
         let answer = part_one_solution(&mut test_modules);
 
-        assert_eq!(answer, 32000000);
+        assert_eq!(answer, 32_000_000);
     }
 
     #[test]
@@ -360,13 +360,13 @@ mod test_super {
         let mut test_modules = complex_test_data();
         let answer = part_one_solution(&mut test_modules);
 
-        assert_eq!(answer, 11687500);
+        assert_eq!(answer, 11_687_500);
     }
 
     #[test]
     fn test_part_one_answer() {
         let mut modules = process_input(include_str!("../data/puzzle_input.txt"));
 
-        assert_eq!(part_one_solution(&mut modules), 919383692);
+        assert_eq!(part_one_solution(&mut modules), 919_383_692);
     }
 }
