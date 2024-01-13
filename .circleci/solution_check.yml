@@ -377,17 +377,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Day 19 tests"
+          name: "Day 20 tests"
           command: "cargo test"
-          working_directory: "day_19"
+          working_directory: "day_20"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_19"
+          working_directory: "day_20"
       - run:
-          name: "Day 19 formatting"
+          name: "Day 20 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_19"
+          working_directory: "day_20"
 
 workflows:
   day_1_test:
