@@ -13,15 +13,15 @@ workflows:
           base-revision: main
           config-path: .circleci/solution_check.yml
           mapping: |
-            day_1/.* day_1_test true
-            day_2/.* day_2_test true
-            day_3/.* day_3_test true
-            day_4/.* day_4_test true
-            day_5/.* day_5_test true
-            day_6/.* day_6_test true
-            day_7/.* day_7_test true
-            day_8/.* day_8_test true
-            day_9/.* day_9_test true
+            day_01/.* day_1_test true
+            day_02/.* day_2_test true
+            day_03/.* day_3_test true
+            day_04/.* day_4_test true
+            day_05/.* day_5_test true
+            day_06/.* day_6_test true
+            day_07/.* day_7_test true
+            day_08/.* day_8_test true
+            day_09/.* day_9_test true
             day_10/.* day_10_test true
             day_11/.* day_11_test true
             day_12/.* day_12_test true
