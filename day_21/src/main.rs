@@ -21,18 +21,16 @@ fn part_one_solution(garden: &Garden, number_of_steps: u32) -> usize {
     possibilites.insert(start);
 
     for _ in 0..number_of_steps {
-        let mut next_possibilites: HashSet<(usize, usize)> = HashSet::new();
+        let next_possibilities: HashSet<(usize, usize)> = possibilites
+            .iter()
+            .flat_map(|coord| {
+                find_cardinals(coord.0, coord.1, &max_x, &max_y)
+                    .into_iter()
+                    .filter(|(x, y)| !matches!(garden[*y][*x], TileType::Rock))
+            })
+            .collect();
 
-        possibilites.iter().for_each(|coord| {
-            find_cardinals(coord.0, coord.1, &max_x, &max_y)
-                .into_iter()
-                .filter(|(x, y)| !matches!(garden[*y][*x], TileType::Rock))
-                .for_each(|coords| {
-                    let _ = next_possibilites.insert(coords);
-                });
-        });
-
-        possibilites = next_possibilites;
+        possibilites = next_possibilities;
     }
 
     possibilites.len()
