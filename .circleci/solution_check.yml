@@ -71,15 +71,15 @@ jobs:
       - run:
           name: "Day 1 tests"
           command: "cargo test"
-          working_directory: "day_1"
+          working_directory: "day_01"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_1"
+          working_directory: "day_01"
       - run:
           name: "Day 1 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_1"
+          working_directory: "day_01"
   day_2_job:
     docker:
       - image: rust:1.75
@@ -88,15 +88,15 @@ jobs:
       - run:
           name: "Day 2 tests"
           command: "cargo test"
-          working_directory: "day_2"
+          working_directory: "day_02"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_2"
+          working_directory: "day_02"
       - run:
           name: "Day 2 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_2"
+          working_directory: "day_02"
   
   day_3_job:
     docker:
@@ -106,15 +106,15 @@ jobs:
       - run:
           name: "Day 3 tests"
           command: "cargo test"
-          working_directory: "day_3"
+          working_directory: "day_03"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_3"
+          working_directory: "day_03"
       # - run:
       #     name: "Day 3 formatting"
       #     command: "cargo clippy -- -Dwarnings"
-      #     working_directory: "day_3"
+      #     working_directory: "day_03"
 
   day_4_job:
     docker:
@@ -124,15 +124,15 @@ jobs:
       - run:
           name: "Day 4 tests"
           command: "cargo test"
-          working_directory: "day_4"
+          working_directory: "day_04"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_4"
+          working_directory: "day_04"
       - run:
           name: "Day 4 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_4"
+          working_directory: "day_04"
 
   day_5_job:
     docker:
@@ -142,15 +142,15 @@ jobs:
       - run:
           name: "Day 5 tests"
           command: "cargo test"
-          working_directory: "day_5"
+          working_directory: "day_05"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_5"
+          working_directory: "day_05"
       - run:
           name: "Day 5 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_5"
+          working_directory: "day_05"
 
   day_6_job:
     docker:
@@ -160,15 +160,15 @@ jobs:
       - run:
           name: "Day 6 tests"
           command: "cargo test"
-          working_directory: "day_6"
+          working_directory: "day_06"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_6"
+          working_directory: "day_06"
       - run:
           name: "Day 6 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_6"
+          working_directory: "day_06"
 
   day_7_job:
     docker:
@@ -178,15 +178,15 @@ jobs:
       - run:
           name: "Day 7 tests"
           command: "cargo test"
-          working_directory: "day_7"
+          working_directory: "day_07"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_7"
+          working_directory: "day_07"
       - run:
           name: "Day 7 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_7"
+          working_directory: "day_07"
   day_8_job:
     docker:
       - image: rust:1.75
@@ -195,15 +195,15 @@ jobs:
       - run:
           name: "Day 8 tests"
           command: "cargo test"
-          working_directory: "day_8"
+          working_directory: "day_08"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_8"
+          working_directory: "day_08"
       - run:
           name: "Day 8 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_8"
+          working_directory: "day_08"
   day_9_job:
     docker:
       - image: rust:1.75
@@ -212,15 +212,15 @@ jobs:
       - run:
           name: "Day 9 tests"
           command: "cargo test"
-          working_directory: "day_9"
+          working_directory: "day_09"
       - run:
           name: "Install clippy"
           command: "rustup component add clippy"
-          working_directory: "day_9"
+          working_directory: "day_09"
       - run:
           name: "Day 9 formatting"
           command: "cargo clippy -- -Dwarnings"
-          working_directory: "day_9"
+          working_directory: "day_09"
   day_10_job:
     docker:
       - image: rust:1.75
