@@ -26,10 +26,7 @@ fn part_one_solution(garden: &Garden, number_of_steps: u32) -> usize {
         possibilites.iter().for_each(|coord| {
             find_cardinals(coord.0, coord.1, &max_x, &max_y)
                 .into_iter()
-                .filter(|(x, y)| match garden[*y][*x] {
-                    TileType::Rock => false,
-                    _ => true,
-                })
+                .filter(|(x, y)| !matches!(garden[*y][*x], TileType::Rock))
                 .for_each(|coords| {
                     let _ = next_possibilites.insert(coords);
                 });
