@@ -64,6 +64,9 @@ parameters:
   day_22_test:
     type: boolean
     default: false
+  day_23_test:
+    type: boolean
+    default: false
 
 jobs:
   day_1_job:
@@ -428,6 +431,23 @@ jobs:
           name: "Day 22 formatting"
           command: "cargo clippy -- -Dwarnings"
           working_directory: "day_22"
+  day_23_job:
+    docker:
+      - image: rust:1.75
+    steps:
+      - checkout
+      - run:
+          name: "Day 23 tests"
+          command: "cargo test"
+          working_directory: "day_23"
+      - run:
+          name: "Install clippy"
+          command: "rustup component add clippy"
+          working_directory: "day_23"
+      - run:
+          name: "Day 23 formatting"
+          command: "cargo clippy -- -Dwarnings"
+          working_directory: "day_23"
 
 workflows:
   day_1_test:
@@ -514,3 +534,7 @@ workflows:
     when: << pipeline.parameters.day_22_test >>
     jobs:
       - day_22_job
+  day_23_test:
+    when: << pipeline.parameters.day_23_test >>
+    jobs:
+      - day_23_job
