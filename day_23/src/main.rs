@@ -1,4 +1,4 @@
-use std::error::Error;
+use std::{error::Error, fmt::Display, str::FromStr};
 
 use ndarray::{Array2, Axis};
 
@@ -104,15 +104,7 @@ fn process_input(input: &str) -> Result<ForestMap, Box<dyn Error>> {
             line.chars()
                 .enumerate()
                 .map(|(x_indx, position)| {
-                    let tile_type = match position {
-                        '#' => TileType::Forest,
-                        '.' => TileType::Path,
-                        '>' => TileType::Slope(Direction::Right),
-                        '<' => TileType::Slope(Direction::Left),
-                        '^' => TileType::Slope(Direction::Up),
-                        'v' => TileType::Slope(Direction::Down),
-                        _ => panic!("Could not determine tile type for: {}", position),
-                    };
+                    let tile_type = TileType::from_str(&position.to_string()).unwrap();
 
                     Tile {
                         r#type: tile_type,
@@ -139,12 +131,37 @@ struct Tile {
     r#type: TileType,
 }
 
-// TODO: Use strum
 #[derive(PartialEq, Eq, Debug)]
 enum TileType {
     Path,
     Forest,
     Slope(Direction),
+}
+
+#[derive(Debug)]
+struct ParseError;
+
+impl Display for ParseError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("Unable to identify tile type from string")
+    }
+}
+impl Error for ParseError {}
+
+impl FromStr for TileType {
+    type Err = ParseError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "#" => Ok(Self::Forest),
+            "." => Ok(Self::Path),
+            ">" => Ok(Self::Slope(Direction::Right)),
+            "<" => Ok(Self::Slope(Direction::Left)),
+            "^" => Ok(Self::Slope(Direction::Up)),
+            "v" => Ok(Self::Slope(Direction::Down)),
+            _ => Err(ParseError),
+        }
+    }
 }
 
 #[derive(PartialEq, Eq, Debug, Copy, Clone)]
