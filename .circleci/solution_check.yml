@@ -84,7 +84,7 @@ jobs:
           working_directory: "day_01"
       - run:
           name: "Day 1 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_01"
   day_2_job:
     docker:
@@ -101,7 +101,7 @@ jobs:
           working_directory: "day_02"
       - run:
           name: "Day 2 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_02"
   
   day_3_job:
@@ -119,7 +119,7 @@ jobs:
           working_directory: "day_03"
       # - run:
       #     name: "Day 3 formatting"
-      #     command: "cargo clippy -- -Dwarnings"
+      #     command: "cargo clippy --no-deps -- -Dwarnings"
       #     working_directory: "day_03"
 
   day_4_job:
@@ -137,7 +137,7 @@ jobs:
           working_directory: "day_04"
       - run:
           name: "Day 4 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_04"
 
   day_5_job:
@@ -155,7 +155,7 @@ jobs:
           working_directory: "day_05"
       - run:
           name: "Day 5 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_05"
 
   day_6_job:
@@ -173,7 +173,7 @@ jobs:
           working_directory: "day_06"
       - run:
           name: "Day 6 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_06"
 
   day_7_job:
@@ -191,7 +191,7 @@ jobs:
           working_directory: "day_07"
       - run:
           name: "Day 7 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_07"
   day_8_job:
     docker:
@@ -208,7 +208,7 @@ jobs:
           working_directory: "day_08"
       - run:
           name: "Day 8 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_08"
   day_9_job:
     docker:
@@ -225,7 +225,7 @@ jobs:
           working_directory: "day_09"
       - run:
           name: "Day 9 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_09"
   day_10_job:
     docker:
@@ -242,7 +242,7 @@ jobs:
           working_directory: "day_10"
       - run:
           name: "Day 10 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_10"
   day_11_job:
     docker:
@@ -259,7 +259,7 @@ jobs:
           working_directory: "day_11"
       - run:
           name: "Day 11 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_11"
   day_12_job:
     docker:
@@ -276,7 +276,7 @@ jobs:
           working_directory: "day_12"
       - run:
           name: "Day 12 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_12"
   day_13_job:
     docker:
@@ -293,7 +293,7 @@ jobs:
           working_directory: "day_13"
       - run:
           name: "Day 13 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_13"
   day_14_job:
     docker:
@@ -310,7 +310,7 @@ jobs:
           working_directory: "day_14"
       - run:
           name: "Day 14 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_14"
   day_15_job:
     docker:
@@ -327,7 +327,7 @@ jobs:
           working_directory: "day_15"
       - run:
           name: "Day 15 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_15"
   day_16_job:
     docker:
@@ -344,7 +344,7 @@ jobs:
           working_directory: "day_16"
       - run:
           name: "Day 16 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_16"
   day_18_job:
     docker:
@@ -361,7 +361,7 @@ jobs:
           working_directory: "day_18"
       - run:
           name: "Day 18 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_18"
   day_19_job:
     docker:
@@ -378,7 +378,7 @@ jobs:
           working_directory: "day_19"
       - run:
           name: "Day 19 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_19"
   day_20_job:
     docker:
@@ -395,7 +395,7 @@ jobs:
           working_directory: "day_20"
       - run:
           name: "Day 20 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_20"
   day_21_job:
     docker:
@@ -412,7 +412,7 @@ jobs:
           working_directory: "day_21"
       - run:
           name: "Day 21 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_21"
   day_22_job:
     docker:
@@ -429,7 +429,7 @@ jobs:
           working_directory: "day_22"
       - run:
           name: "Day 22 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_22"
   day_23_job:
     docker:
