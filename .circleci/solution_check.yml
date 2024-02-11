@@ -446,7 +446,7 @@ jobs:
           working_directory: "day_23"
       - run:
           name: "Day 23 formatting"
-          command: "cargo clippy -- -Dwarnings"
+          command: "cargo clippy --no-deps -- -Dwarnings"
           working_directory: "day_23"
 
 workflows:
