@@ -1,6 +1,7 @@
-use std::{error::Error, fmt::Display, str::FromStr};
+// TODO: Make faster, currently takes ~4 secs to complete for Part 1
 
 use ndarray::{Array2, Axis};
+use std::{error::Error, fmt::Display, str::FromStr};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let input = include_str!("../data/puzzle_input.txt");
