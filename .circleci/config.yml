@@ -35,3 +35,4 @@ workflows:
             day_21/.* day_21_test true
             day_22/.* day_22_test true
             day_23/.* day_23_test true
+            day_24/.* day_24_test true
