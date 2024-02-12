@@ -17,25 +17,30 @@ fn test_area() -> RangeInclusive<f64> {
 
 #[derive(PartialEq, Debug)]
 struct Hailstone {
-    x_position: f64,
-    x_velocity: f64,
-    y_position: f64,
-    y_velocity: f64,
-    z_position: f64,
-    z_velocity: f64,
+    px: f64,
+    vx: f64,
+    py: f64,
+    vy: f64,
+    pz: f64,
+    vz: f64,
+    a: f64,
+    b: f64,
+    c: f64,
 }
 
 impl Hailstone {
-    fn a(&self) -> f64 {
-        self.y_velocity
-    }
-
-    fn b(&self) -> f64 {
-        -self.x_velocity
-    }
-
-    fn c(&self) -> f64 {
-        self.y_velocity * self.x_position - self.x_velocity * self.y_position
+    fn new(px: f64, py: f64, pz: f64, vx: f64, vy: f64, vz: f64) -> Self {
+        Self {
+            px,
+            vx,
+            py,
+            vy,
+            pz,
+            vz,
+            a: vy,
+            b: -vx,
+            c: vy * px - vx * py,
+        }
     }
 }
 
@@ -46,8 +51,8 @@ fn part_one_solution(hailstones: &[Hailstone], test_area: &RangeInclusive<f64>) 
         let h1 = &hailstones[i];
 
         for h2 in hailstones.iter().skip(i) {
-            let (a1, b1, c1) = (h1.a(), h1.b(), h1.c());
-            let (a2, b2, c2) = (h2.a(), h2.b(), h2.c());
+            let (a1, b1, c1) = (h1.a, h1.b, h1.c);
+            let (a2, b2, c2) = (h2.a, h2.b, h2.c);
 
             if a1 * b2 == b1 * a2 {
                 continue;
@@ -58,8 +63,8 @@ fn part_one_solution(hailstones: &[Hailstone], test_area: &RangeInclusive<f64>) 
 
             if test_area.contains(&x) && test_area.contains(&y) {
                 let intersects_in_the_future = [h1, h2].iter().all(|hailstone| {
-                    (x - hailstone.x_position) * hailstone.x_velocity >= 0.0
-                        && (y - hailstone.y_position) * hailstone.y_velocity >= 0.0
+                    (x - hailstone.px) * hailstone.vx >= 0.0
+                        && (y - hailstone.py) * hailstone.vy >= 0.0
                 });
 
                 if intersects_in_the_future {
@@ -87,14 +92,14 @@ fn process_input(input: &str) -> Vec<Hailstone> {
                 .collect();
 
             // TODO: create two iters and zip them together into the Hailstone
-            Hailstone {
-                x_position: hail_axes[0],
-                x_velocity: hail_velocities[0],
-                y_position: hail_axes[1],
-                y_velocity: hail_velocities[1],
-                z_position: hail_axes[2],
-                z_velocity: hail_velocities[2],
-            }
+            Hailstone::new(
+                hail_axes[0],
+                hail_axes[1],
+                hail_axes[2],
+                hail_velocities[0],
+                hail_velocities[1],
+                hail_velocities[2],
+            )
         })
         .collect()
 }
@@ -114,26 +119,16 @@ mod test_super {
         assert_eq!(hailstones.len(), 5);
 
         let first = &hailstones[0];
-        assert_eq!(
-            first,
-            &Hailstone {
-                x_position: 19.0,
-                x_velocity: -2.0,
-                y_position: 13.0,
-                y_velocity: 1.0,
-                z_position: 30.0,
-                z_velocity: -2.0
-            }
-        )
+        assert_eq!(first, &Hailstone::new(19.0, 13.0, 30.0, -2.0, 1.0, -2.0));
     }
 
     #[test]
     fn test_hailstones_constants() {
         let hailstone = &test_data()[0];
 
-        assert_eq!(hailstone.a(), 1.0);
-        assert_eq!(hailstone.b(), 2.0);
-        assert_eq!(hailstone.c(), 45.0);
+        assert_eq!(hailstone.a, 1.0);
+        assert_eq!(hailstone.b, 2.0);
+        assert_eq!(hailstone.c, 45.0);
     }
 
     #[test]
